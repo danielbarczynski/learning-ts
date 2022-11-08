@@ -31,14 +31,14 @@ var Weekend;
 })(Weekend || (Weekend = {}));
 ;
 console.log(Weekend.Friday);
-// Object
-const human2 = {
-    firstName: 'Marry',
-    age: 666
-};
 const human = {
     firstName: 'Arry',
     age: 15
+};
+// human.firstName = 'd'; // error - readonly
+const human2 = {
+    firstName: 'Marry',
+    age: 666
 };
 // Type Assertion
 let cid = 1;
@@ -48,9 +48,15 @@ let customerId = cid;
 function addNum(x, y) {
     return x + y;
 }
+;
 console.log(addNum(10, 20));
 function printSomething(text) {
     console.log(text);
 }
+;
 printSomething('wassup');
-// Interface (?)
+const human3 = {
+    firstName: 'Darry',
+    age: 59 // if missing e.g. age prop, then will return error
+};
+//  human3.age = 3; // error - readonly
