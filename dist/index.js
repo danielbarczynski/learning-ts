@@ -75,3 +75,22 @@ const daniel = new Person('Daniel', 23);
 console.log(daniel);
 console.log(daniel.returnName());
 // console.log(daniel.name); // error because private
+// Subclass
+class Employee extends Person {
+    position;
+    constructor(name, age, position) {
+        super(name, age);
+        this.position = position;
+    }
+}
+const employee = new Employee('Shawn', 42, 'Manager');
+console.log(employee);
+console.log(employee.returnName());
+// Generics
+function getArray(items) {
+    return new Array().concat(items);
+}
+const numArray = getArray([1, 2, 3, 4]);
+const strArray = getArray(['Josh', 'Joe']);
+console.log(numArray);
+console.log(strArray);
