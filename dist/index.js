@@ -22,7 +22,7 @@ const person2 = [
 let numAndString;
 numAndString = 5;
 numAndString = '5';
-// Enums
+// Enums (only in TypeScript)
 var Weekend;
 (function (Weekend) {
     Weekend["Friday"] = "Friday";
@@ -31,3 +31,26 @@ var Weekend;
 })(Weekend || (Weekend = {}));
 ;
 console.log(Weekend.Friday);
+// Object
+const human2 = {
+    firstName: 'Marry',
+    age: 666
+};
+const human = {
+    firstName: 'Arry',
+    age: 15
+};
+// Type Assertion
+let cid = 1;
+// let customerId = <number>cid
+let customerId = cid;
+// Functions 
+function addNum(x, y) {
+    return x + y;
+}
+console.log(addNum(10, 20));
+function printSomething(text) {
+    console.log(text);
+}
+printSomething('wassup');
+// Interface (?)

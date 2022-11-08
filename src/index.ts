@@ -37,6 +37,19 @@ enum Weekend {
 console.log(Weekend.Friday);
 
 // Object
+type Human = {
+    readonly firstName: string,
+    age?: number
+}
+
+
+const human: Human = {
+    firstName: 'Arry',
+    age: 15
+}
+
+// human.firstName = 'd'; // error - readonly
+
 const human2: {
      firstName: string,
      age: number 
@@ -45,12 +58,33 @@ const human2: {
     age: 666 
 }
 
-type Human = {
-    firstName: string,
-    age: number
+// Type Assertion
+let cid: any = 1;
+// let customerId = <number>cid
+let customerId = cid as number;
+
+// Functions 
+function addNum(x: number, y: number): number { // if just (x, y) returns error
+    return x + y;
 }
 
-const human: Human = {
-    firstName: 'Arry',
-    age: 15 
+console.log(addNum(10, 20));
+
+function printSomething(text: number | string): void {
+    console.log(text);
 }
+
+printSomething('wassup');
+
+// Interface
+type HumanInterface = {
+    firstName?: string, // optional
+    readonly age: number
+}
+
+const human3: HumanInterface = {
+    firstName: 'Darry',
+    age: 59 // if missing e.g. age prop, then will return error
+}
+
+//  human3.age = 3; // error - readonly
