@@ -88,3 +88,37 @@ const human3: HumanInterface = {
 }
 
 //  human3.age = 3; // error - readonly
+
+interface MathFunc {
+    (x: number, y: number): number
+}
+
+const mathFunc1: MathFunc = (x: number, y: number): number => x + y;
+const mathFunc2: MathFunc = (x: number, y: number): number => x - y;
+
+interface PersonInterface {
+    readonly name: string,
+    readonly age: number,
+    returnName(): string
+}
+
+// Classes
+class Person implements PersonInterface{
+    readonly name: string; // public by default
+    readonly age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    returnName() { // without 'function' before the name
+        return this.name;
+    }
+}
+
+const daniel = new Person('Daniel', 23);
+
+console.log(daniel);
+console.log(daniel.returnName());
+// console.log(daniel.name); // error because private

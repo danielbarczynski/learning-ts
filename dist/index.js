@@ -48,15 +48,30 @@ let customerId = cid;
 function addNum(x, y) {
     return x + y;
 }
-;
 console.log(addNum(10, 20));
 function printSomething(text) {
     console.log(text);
 }
-;
 printSomething('wassup');
 const human3 = {
     firstName: 'Darry',
     age: 59 // if missing e.g. age prop, then will return error
 };
-//  human3.age = 3; // error - readonly
+const mathFunc1 = (x, y) => x + y;
+const mathFunc2 = (x, y) => x - y;
+// Classes
+class Person {
+    name; // public by default
+    age;
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    returnName() {
+        return this.name;
+    }
+}
+const daniel = new Person('Daniel', 23);
+console.log(daniel);
+console.log(daniel.returnName());
+// console.log(daniel.name); // error because private
