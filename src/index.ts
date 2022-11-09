@@ -147,3 +147,75 @@ const strArray = getArray<string>(['Josh', 'Joe']);
 
 console.log(numArray);
 console.log(strArray);
+
+//--------------------------------------
+
+// Practicing
+let numm: number = 5;
+const arrr: string[] = ['jack', 'd'];
+const tupp: [string, number] = ['d', 3];
+let unn: string | number = '5';
+enum www {
+    w = 'w',
+    ww = 'ww',
+    www = 'www'
+}
+
+function sayDeclar(namm: string): void {
+    console.log(`Hello ${namm}`);
+}
+
+const sayExpres = function (namm: string) {
+    console.log(`Hello ${namm}`);
+}
+const sayArrow = (namm: string) => {
+    console.log(`Hello ${namm}`);
+}
+
+const sayArrow2 = (namm: string) => console.log(`Hello ${namm}`);
+
+sayDeclar('Declar');
+sayExpres('Expres');
+sayArrow('Arrow');
+sayArrow2('Arrow2');
+
+let somm: any;
+somm = '50' as string;
+
+type Typp = {
+    namm: string,
+    readonly agg: number
+}
+
+interface TyppInterface {
+    namm: string,
+    readonly agg: number 
+}
+
+const typp: Typp = {
+    namm: 'man',
+    agg: 22
+}
+
+const typp2: TyppInterface = {
+    namm: 'm',
+    agg: 50
+}
+
+class Class implements TyppInterface {
+    namm: string
+    agg: number
+    returnAge() {
+        return this.agg;
+    }
+    constructor(namm: string, agg: number) {
+        this.namm = namm;
+        this.agg = agg;
+    }
+}
+
+class SubClass extends Class {
+    constructor(namm: string, agg: number) {
+        super(namm, agg);
+    }
+}
