@@ -33,23 +33,19 @@ enum Weekend {
     Saturday = 'Saturday',
     Sunday = 'Sunday'
 };
-
 console.log(Weekend.Friday);
 
 // Object
 type Human = {
-    readonly firstName: string,
-    age?: number
+    readonly firstName: string, // must be implemented 
+    age?: number // optional
 }
-
-
 const human: Human = {
     firstName: 'Arry',
-    age: 15
+
 }
-
+console.log(human);
 // human.firstName = 'd'; // error - readonly
-
 const human2: {
      firstName: string,
      age: number 
@@ -67,13 +63,13 @@ let customerId = cid as number;
 function addNum(x: number, y: number): number { // if just (x, y) returns error
     return x + y;
 }
-
 console.log(addNum(10, 20));
-
 function printSomething(text: number | string): void {
     console.log(text);
 }
 
+// Arrow function
+const addNum2 = (x: number, y: number): number => x + y;
 printSomething('wassup');
 
 // Interface
@@ -86,39 +82,40 @@ const human3: HumanInterface = {
     firstName: 'Darry',
     age: 59 // if missing e.g. age prop, then will return error
 }
-
 //  human3.age = 3; // error - readonly
+console.log(human3);
 
+// Function with interface
 interface MathFunc {
     (x: number, y: number): number
 }
-
 const mathFunc1: MathFunc = (x: number, y: number): number => x + y;
-const mathFunc2: MathFunc = (x: number, y: number): number => x - y;
+const mathFunc2: MathFunc = x => x; // will work, not required specific quantity of parameters
+const mathFunc3: MathFunc = (x, y) => x + y; //* don't have to specify types with interface applied
+// const mathFunc4: MathFunc = (x: string): string => x; // can't do must be numbers like in interface
+console.log(mathFunc1(5, 5));
+console.log(mathFunc2(5, 5));
+console.log(mathFunc3(6, 6));
+// console.log(mathFunc3('f', 'g')); //* still error, not assignable to type number in interface
 
+// Classes
 interface PersonInterface {
     readonly name: string,
     readonly age: number,
-    returnName(): string
+    returnName(): string // without 'function' before the name
 }
-
-// Classes
 class Person implements PersonInterface{
     readonly name: string; // public by default
     readonly age: number;
-
     constructor(name: string, age: number) {
         this.name = name;
         this.age = age;
     }
-
     returnName() { // without 'function' before the name
         return this.name;
     }
 }
-
 const daniel = new Person('Daniel', 23);
-
 console.log(daniel);
 console.log(daniel.returnName());
 // console.log(daniel.name); // error because private
@@ -126,13 +123,11 @@ console.log(daniel.returnName());
 // Subclass
 class Employee extends Person {
     position: string;
-
     constructor(name: string, age: number, position: string) {
         super(name, age);
         this.position = position;
     }
 }
-
 const employee = new Employee('Shawn', 42, 'Manager');
 console.log(employee);
 console.log(employee.returnName());
@@ -141,9 +136,7 @@ console.log(employee.returnName());
 function getArray<T>(items: T[]): T[] {
     return new Array().concat(items);
 }
-
 const numArray = getArray<number>([1, 2, 3, 4]);
 const strArray = getArray<string>(['Josh', 'Joe']);
-
 console.log(numArray);
 console.log(strArray);
