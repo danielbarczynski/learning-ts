@@ -1,20 +1,3 @@
-// import { debugger } from 'quokka';
-
-// simple decorator class
-// function Logger(constructor) {
-//     console.log('Logging...');
-//     console.log(constructor);
-// }
-
-// @Logger
-// class Person {
-//     name = 'Daniel';
-//     constructor() {
-//         console.log('Creating person object...');
-//     }
-// }
-
-
 function first() {
     console.log("first(): factory evaluated");
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
@@ -34,3 +17,15 @@ function first() {
     @second()
     method() {}
   }
+
+  function addProperty(target: any) {
+    target.myProperty = "Hello, world!";
+  }
+  
+  @addProperty
+  class MyClass {
+    static myProperty: any;
+  }
+  
+  console.log(MyClass.myProperty); 
+  
