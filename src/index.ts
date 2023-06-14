@@ -123,13 +123,19 @@ console.log(daniel.returnName());
 // Subclass
 class Employee extends Person {
     position: string;
-    constructor(name: string, age: number, position: string) {
+    constructor(name: string, age: number, position: string, private salary: number) {
         super(name, age);
         this.position = position;
     }
+
+    showSalary() {
+        return this.salary;
+    }
+
 }
-const employee = new Employee('Shawn', 42, 'Manager');
+const employee = new Employee('Shawn', 42, 'Manager', 56000);
 console.log(employee);
+console.log(employee.showSalary());
 console.log(employee.returnName());
 
 // Generics
